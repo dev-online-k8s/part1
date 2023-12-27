@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv-250
+  labels:
+    type: local
+spec:
+  storageClassName: host-pv
+  capacity:
+    storage: 250Mi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/my-pv/data/pv3"

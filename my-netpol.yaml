@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: my-netpol
+  namespace: caller-namespace
+spec:
+  podSelector:
+    matchLabels:
+      app: caller-pod
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: another-namespace

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-ev-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+      - mountPath: /tmp/uploads
+        name: upload-volume
+  volumes:
+    - name: upload-volume
+      emptyDir: {}
